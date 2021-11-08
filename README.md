@@ -1,10 +1,10 @@
-# Role Name
+# Ansible Role : manage_selinux
 
-A brief description of the role goes here.
+This role manages the state of selinux.
 
 ## Requirements
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+None.
 
 ## Role Variables
 
@@ -12,17 +12,15 @@ A description of the settable variables for this role should go here, including 
 
 ## Dependencies
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+None.
 
 ## Example Playbook
-
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
     - hosts: servers
       vars_files:
         - vars/main.yml
       roles:
-        - ROLENAME
+        - glillico.manage_selinux
 
 ## License
 
@@ -30,4 +28,4 @@ MIT
 
 ## Author Information
 
-This role was created in 2020 by Graham Lillico.
+This role was created in 2021 by Graham Lillico.
