@@ -2,12 +2,34 @@
 dependency:
   name: galaxy
 driver:
-  name: docker
+  name: vagrant
+  provider:
+    name: virtualbox
 platforms:
   - name: instance
-    image: docker.io/pycontribs/centos:8
+    box: geerlingguy/${MOLECULE_DISTRO:-centos8}
     pre_build_image: true
 provisioner:
   name: ansible
 verifier:
   name: ansible
+# lint: |
+#   set -e
+#   yamllint .
+#   ansible-lint
+scenario:
+  test_sequence:
+    - lint
+    - cleanup
+    - destroy
+    - dependency
+    - syntax
+    - create
+    - prepare
+    - converge
+    - idempotence
+    - check
+    - side_effect
+    - verify
+    - cleanup
+    - destroy

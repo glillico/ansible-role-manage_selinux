@@ -4,7 +4,14 @@
 - name: Verify
   hosts: all
   gather_facts: false
+
+  pre_tasks:
+    - name: Include variables.
+      include_vars: 'vars/main.yml'
+
   tasks:
-  - name: Example assertion
-    assert:
-      that: true
+    - name: Verify selinux state.
+      selinux:
+        policy: "{{ mse_policy }}"
+        state: "{{ mse_state }}"
+      check_mode: true

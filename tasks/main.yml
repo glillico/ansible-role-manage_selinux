@@ -10,5 +10,5 @@
 
 - name: Set selinux mode.
   ansible.posix.selinux:
-    policy: targeted
-    state: enforcing
+    policy: "{{ mse_policy }}"
+    state: "{{ mse_state }}"
