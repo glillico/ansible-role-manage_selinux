@@ -1,5 +1,7 @@
 # Ansible Role : manage_selinux
 
+[![CI](https://github.com/glillico/ansible-role-manage_selinux/workflows/CI/badge.svg)](https://github.com/glillico/ansible-role-manage_selinux/actions?query=workflow%3ACI)
+
 This role manages the state of selinux.
 
 ## Requirements
@@ -8,7 +10,13 @@ None.
 
 ## Role Variables
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+### defaults/main.yml
+
+|Variable|Description|
+|---|:---|
+|mse_policy|Defines the name of the SELinux policy to use.||
+|mse_state|Defines the SELinux mode.<br>(Options: disabled, enforcing, permissive).|
+|mse_kernel_param|If set to `true' it will update the kernel boot parameters when enabling or disabling SELinux.<br>(Options: true, false).|
 
 ## Dependencies
 
