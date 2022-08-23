@@ -11,7 +11,7 @@
 
   tasks:
     - name: Verify selinux state.
-      selinux:
+      ansible.posix.selinux:
         policy: "{{ mse_policy }}"
         state: "{{ mse_state }}"
       check_mode: true

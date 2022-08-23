@@ -3,3 +3,4 @@
 
 mse_policy: targeted
 mse_state: enforcing
+mse_kernel_param: true
