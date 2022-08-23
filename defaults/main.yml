@@ -1,5 +1,6 @@
 ---
 # defaults file for ansible-role-manage_selinux
 
-mse_policy: targeted
-mse_state: enforcing
+mse_policy:
+mse_state:
+mse_kernel_param:

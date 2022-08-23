@@ -11,4 +11,5 @@
 - name: Set selinux mode.
   ansible.posix.selinux:
     policy: "{{ mse_policy }}"
+    update_kernel_param: "{{ mse_kernel_param | default(omit) }}"
     state: "{{ mse_state }}"
