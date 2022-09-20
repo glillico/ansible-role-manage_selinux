@@ -1,0 +1,4 @@
+---
+# Debian vars file for ansible-role-manage_selinux
+
+__mse_selinux_package_name: selinux-basics

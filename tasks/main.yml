@@ -1,15 +1,29 @@
 ---
 # tasks file for ansible-role-manage_selinux
 
+- name: Include OS-specific variables.
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- name: Define mse_selinux_package_name.
+  set_fact:
+    mse_selinux_package_name: "{{ __mse_selinux_package_name }}"
+  when: mse_selinux_package_name is not defined
+
 - name: Install required packages.
   package:
     name:
-      - selinux-policy
+      - "{{ mse_selinux_package_name }}"
     state: present
     update_cache: true
+
+- name: Activate selinux.
+  command:
+    cmd: /usr/sbin/selinux-activate
+  when: ansible_os_family == "Debian"
 
 - name: Set selinux mode.
   ansible.posix.selinux:
     policy: "{{ mse_policy }}"
     update_kernel_param: "{{ mse_kernel_param | default(omit) }}"
     state: "{{ mse_state }}"
+  when: ansible_os_family == "RedHat"
